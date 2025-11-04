@@ -21,11 +21,16 @@ function updateCart() {
   totalElement.textContent = `Total: K${total}`;
 }
 
-function checkout() {
+function sendOrder(event) {
+    event.preventDefault();
   if (cart.length === 0) {
     alert("Your cart is empty!");
     return;
   }
+
+  const name = document.getElementById("name").value;
+  const address = document.getElementById("address").value;
+  const phone = document.getElementById("phone").value;
 
   const message = cart.map(i => `${i.name} - K${i.price}`).join("\n");
   const total = cart.reduce((sum, i) => sum + i.price, 0);
