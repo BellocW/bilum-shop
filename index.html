@@ -40,6 +40,22 @@
     </div>
   </section>
 
+  <section class="cart">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total">Total: K0</p>
+  </section>
+
+  <section class="checkout">
+    <h2>Checkout Form</h2>
+    <form id="checkout-form" onsubmit="sendOrder(event)">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="text" id="address" placeholder="Delivery Address" required>
+      <input type="text" id="phone" placeholder="Phone Number" required>
+      <button type="submit">Place Order via WhatsApp</button>
+    </form>
+  </section>
+
   <footer>
     <p>© 2025 Bilum Haus PNG | Made in Papua New Guinea 🇵🇬</p>
   </footer>
@@ -47,3 +63,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
