@@ -100,6 +100,20 @@ button:hover {
   margin: 0 auto;
 }
 
+.remove-btn {
+  background: #8b0000;
+  color: #ffdf00;
+  border: none;
+  border-radius: 4px;
+  margin-left: 8px;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+
+.remove-btn:hover {
+  background: #a52a2a;
+}
+
 footer {
   background: #8b4513;
   color: white;
@@ -222,5 +236,6 @@ footer {
     max-width: 350px;
   }
 }
+
 
 
