@@ -4,7 +4,7 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let total = cart.reduce((sum, item) => sum + item.price, 0);
 
-// --- Add item to cart ---
+// Add item to cart
 function addToCart(productName, price) {
   cart.push({ name: productName, price: price });
   total += price;
@@ -13,7 +13,7 @@ function addToCart(productName, price) {
   alert(`${productName} added to your cart ✅`);
 }
 
-// --- Update cart section on page ---
+// Update cart display
 function updateCartDisplay() {
   const cartList = document.getElementById("cart-items");
   const totalDisplay = document.getElementById("total");
@@ -30,7 +30,7 @@ function updateCartDisplay() {
   totalDisplay.textContent = `Total: K${total}`;
 }
 
-// --- Remove item from cart ---
+// Remove item
 function removeItem(index) {
   total -= cart[index].price;
   cart.splice(index, 1);
@@ -38,12 +38,12 @@ function removeItem(index) {
   saveCart();
 }
 
-// --- Save cart to localStorage ---
+// Save cart
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// --- Handle order submission ---
+// Send order via WhatsApp
 function sendOrder(event) {
   event.preventDefault();
 
@@ -61,7 +61,6 @@ function sendOrder(event) {
     return;
   }
 
-  // Build WhatsApp message
   let message = `🧺 *Bilum Haus PNG Order*%0A`;
   message += `👤 Name: ${name}%0A`;
   message += `🏠 Address: ${address}%0A`;
@@ -75,21 +74,16 @@ function sendOrder(event) {
   message += `%0A💰 *Total:* K${total}%0A%0A`;
   message += `Thank you for supporting local PNG craftswomen 🇵🇬`;
 
-  // WhatsApp number (yours)
   const phoneNumber = "67573745735";
   const url = `https://wa.me/${phoneNumber}?text=${message}`;
-
-  // Open WhatsApp
   window.open(url, "_blank");
 
-  // Clear cart and form
   clearCart();
   document.getElementById("checkout-form").reset();
-
   alert("Order sent to WhatsApp ✅ Thank you for your purchase!");
 }
 
-// --- Clear cart ---
+// Clear cart
 function clearCart() {
   cart = [];
   total = 0;
@@ -97,5 +91,5 @@ function clearCart() {
   updateCartDisplay();
 }
 
-// --- Display cart on page load ---
+// Display cart when page loads
 document.addEventListener("DOMContentLoaded", updateCartDisplay);
