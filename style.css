@@ -169,6 +169,48 @@ footer {
   background: #a0522d;
 }
 
+/* --- PNG Style Enhancements --- */
+
+/* Body background with light bilum texture or pattern */
+body {
+  background: #fffaf2 url('images/bilum-pattern.png') repeat;
+  background-size: 300px;
+}
+
+/* Buttons in PNG red/gold theme */
+button {
+  background: #8b0000;
+  color: #ffdf00;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #a52a2a;
+}
+
+/* Section titles */
+h2 {
+  color: #8b0000;
+  border-bottom: 3px solid #ffdf00;
+  display: inline-block;
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  background: #000000;
+  color: #ffdf00;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  border-top: 5px solid #ffdf00;
+}
+
 /* Responsive */
 @media (max-width: 700px) {
   .featured-content {
@@ -180,4 +222,5 @@ footer {
     max-width: 350px;
   }
 }
+
 
