@@ -1,3 +1,40 @@
+/* --- PNG Style Header --- */
+header {
+  background: linear-gradient(to right, #000000, #8b0000);
+  color: #ffdf00;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-bottom: 5px solid #ffdf00;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffdf00;
+}
+
+header h1 {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 2rem;
+  margin: 0;
+}
+
+header p {
+  font-size: 1rem;
+  margin: 0.5rem 0 0;
+  color: #fff;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -143,3 +180,4 @@ footer {
     max-width: 350px;
   }
 }
+
