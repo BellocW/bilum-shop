@@ -38,17 +38,12 @@ header p {
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background: #fffaf2;
+  background: #fffaf2 url('images/bilum-pattern.png') repeat;
+  background-size: 300px;
   color: #333;
 }
 
-header {
-  background: #8b4513;
-  color: white;
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
+/* --- Product Grid --- */
 .shop, .cart {
   padding: 2rem;
   text-align: center;
@@ -73,19 +68,36 @@ header {
   border-radius: 10px;
 }
 
+/* --- Buttons --- */
 button {
-  background: #8b4513;
-  color: white;
+  background: #8b0000;
+  color: #ffdf00;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   border-radius: 6px;
+  font-weight: bold;
   cursor: pointer;
 }
 
 button:hover {
-  background: #a0522d;
+  background: #a52a2a;
 }
 
+/* --- Remove Button --- */
+.remove-btn {
+  background: #8b0000;
+  color: #ffdf00;
+  border: none;
+  border-radius: 4px;
+  margin-left: 8px;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+.remove-btn:hover {
+  background: #a52a2a;
+}
+
+/* --- Cart --- */
 .cart {
   background: #fdf4ea;
   border-top: 2px solid #8b4513;
@@ -100,38 +112,16 @@ button:hover {
   margin: 0 auto;
 }
 
-.remove-btn {
-  background: #8b0000;
-  color: #ffdf00;
-  border: none;
-  border-radius: 4px;
-  margin-left: 8px;
-  cursor: pointer;
-  padding: 0.2rem 0.4rem;
+/* --- Section Titles --- */
+h2 {
+  color: #8b0000;
+  border-bottom: 3px solid #ffdf00;
+  display: inline-block;
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
 }
 
-.remove-btn:hover {
-  background: #a52a2a;
-}
-
-footer {
-  background: #8b4513;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-}
-
-/* Mobile responsive */
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 1.8rem;
-  }
-  .product-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* Featured Section */
+/* --- Featured Section --- */
 .featured {
   background: linear-gradient(to bottom right, #f7e8d1, #fffaf2);
   padding: 2rem 1rem;
@@ -169,53 +159,7 @@ footer {
   margin: 0.8rem 0;
 }
 
-.featured-text button {
-  background: #8b4513;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.featured-text button:hover {
-  background: #a0522d;
-}
-
-/* --- PNG Style Enhancements --- */
-
-/* Body background with light bilum texture or pattern */
-body {
-  background: #fffaf2 url('images/bilum-pattern.png') repeat;
-  background-size: 300px;
-}
-
-/* Buttons in PNG red/gold theme */
-button {
-  background: #8b0000;
-  color: #ffdf00;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #a52a2a;
-}
-
-/* Section titles */
-h2 {
-  color: #8b0000;
-  border-bottom: 3px solid #ffdf00;
-  display: inline-block;
-  padding-bottom: 0.2rem;
-  margin-bottom: 1rem;
-}
-
-/* Footer */
+/* --- Footer --- */
 footer {
   background: #000000;
   color: #ffdf00;
@@ -223,18 +167,6 @@ footer {
   padding: 1rem;
   margin-top: 2rem;
   border-top: 5px solid #ffdf00;
-}
-
-/* Responsive */
-@media (max-width: 700px) {
-  .featured-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  .featured-content img {
-    width: 100%;
-    max-width: 350px;
-  }
 }
 
 /* --- Floating WhatsApp Chat Button --- */
@@ -260,6 +192,20 @@ footer {
   border-radius: 50%;
 }
 
-
-
-
+/* --- Mobile Responsive --- */
+@media (max-width: 700px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  .featured-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .featured-content img {
+    width: 100%;
+    max-width: 350px;
+  }
+}
