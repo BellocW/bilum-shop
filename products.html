@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bilum Haus PNG | Handmade Bilums & Traditional Crafts from Papua New Guinea</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Bilum Haus PNG offers handmade bilums and traditional crafts from Papua New Guinea. Support local artisans and explore unique, colorful bilums.">
+  <meta name="keywords" content="Bilum, Papua New Guinea, Handmade Crafts, Traditional Bilum, PNG Products, PNG Handicrafts">
+  <meta name="author" content="Bilum Haus PNG">
+  
+  <!-- Social Media Meta Tags -->
+  <meta property="og:title" content="Bilum Haus PNG | Handmade Bilums & Crafts">
+  <meta property="og:description" content="Explore beautiful handmade bilums and traditional PNG crafts. Support local artisans today!">
+  <meta property="og:image" content="images/logo.png">
+  <meta property="og:url" content="https://www.yourwebsite.com/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="images/logo.png" type="image/png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>🧺 Bilum Haus PNG</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="products">
+    <h2>Our Bilum Collection</h2>
+    <p>Explore our handwoven bilums — proudly made by women artisans from across Papua New Guinea 🇵🇬.</p>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/traditiona.png" alt="Traditional Bilum">
+        <h3>Traditional Bilum</h3>
+        <p>K80.00</p>
+        <button onclick="addToCart('Traditional Bilum', 80)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/modern.png" alt="Modern Bilum">
+        <h3>Modern Bilum</h3>
+        <p>K100.00</p>
+        <button onclick="addToCart('Modern Bilum', 100)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/wood bilum.png" alt="Wool Bilum">
+        <h3>Wool Bilum</h3>
+        <p>K120.00</p>
+        <button onclick="addToCart('Wool Bilum', 120)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/string.png" alt="String Bilum">
+        <h3>String Bilum</h3>
+        <p>K90.00</p>
+        <button onclick="addToCart('String Bilum', 90)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/mini.png" alt="Mini Bilum">
+        <h3>Mini Bilum</h3>
+        <p>K60.00</p>
+        <button onclick="addToCart('Mini Bilum', 60)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="images/custom.png" alt="Custom Bilum">
+        <h3>Custom Bilum</h3>
+        <p>K150.00</p>
+        <button onclick="addToCart('Custom Bilum', 150)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cart">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total">Total: K0</p>
+
+    <form onsubmit="sendOrder(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="text" id="address" placeholder="Your Address" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <button type="submit">Send Order via WhatsApp</button>
+    </form>
+
+    <button onclick="clearCart()">Clear Cart</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bilum Haus PNG | Supporting PNG Craftswomen 🇵🇬</p>
+  </footer>
+
+  <!-- Floating WhatsApp Chat Button -->
+  <a href="https://wa.me/67573745735?text=Hi%20Bilum%20Haus%20PNG!%20I%20want%20to%20ask%20about%20your%20bilums."
+     class="whatsapp-float"
+     target="_blank"
+     title="Chat on WhatsApp">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp Chat" class="whatsapp-icon">
+  </a>
+  <div class="social-icons">
+      <a href="https://www.facebook.com/" target="_blank" title="Facebook">
+        <img src="images/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.tiktok.com/" target="_blank" title="TikTok">
+        <img src="images/tiktok.png" alt="TikTok">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" title="Instagram">
+        <img src="images/instagram.png" alt="Instagram">
+      </a>
+    </div>
+    </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

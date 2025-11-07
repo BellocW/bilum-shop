@@ -1,34 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bilum Haus PNG</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bilum Haus PNG | Handmade Bilums & Traditional Crafts from Papua New Guinea</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.30.0/dist/supabase.min.js"></script>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Bilum Haus PNG offers handmade bilums and traditional crafts from Papua New Guinea. Support local artisans and explore unique, colorful bilums.">
+  <meta name="keywords" content="Bilum, Papua New Guinea, Handmade Crafts, Traditional Bilum, PNG Products, PNG Handicrafts">
+  <meta name="author" content="Bilum Haus PNG">
+  
+  <!-- Social Media Meta Tags -->
+  <meta property="og:title" content="Bilum Haus PNG | Handmade Bilums & Crafts">
+  <meta property="og:description" content="Explore beautiful handmade bilums and traditional PNG crafts. Support local artisans today!">
+  <meta property="og:image" content="images/logo.png">
+  <meta property="og:url" content="https://www.yourwebsite.com/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="images/logo.png" type="image/png">
+
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
   <!-- Header -->
   <header>
+    <!-- Hero Image Carousel -->
+<section class="carousel">
+  <div class="slides">
+    <img src="images/banner1.png" class="active" alt="Beautiful PNG Bilums" />
+    <img src="images/banner2.png" alt="Handmade Bilums for Sale" />
+    <img src="images/banner3.png" alt="Support Local PNG Women" />
+  </div>
+
+  <!-- Navigation arrows -->
+  <button class="prev" onclick="changeSlide(-1)">❮</button>
+  <button class="next" onclick="changeSlide(1)">❯</button>
+
+  <!-- Dots -->
+  <div class="dots">
+    <span class="dot active" onclick="setSlide(0)"></span>
+    <span class="dot" onclick="setSlide(1)"></span>
+    <span class="dot" onclick="setSlide(2)"></span>
+  </div>
+</section>
+
     <div class="logo-container">
       <img src="images/logo.png" alt="Bilum Haus PNG Logo" class="logo">
       <div>
         <h1>Bilum Haus PNG</h1>
         <p>Handmade Bilums & Traditional Crafts from Papua New Guinea 🇵🇬</p>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
   <nav>
   <a href="index.html">Home</a> |
+  <a href="gallery.html">Gallery</a> |
+  <a href="products.html">Products</a> |
   <a href="about.html">About Us</a> |
   <a href="contact.html">Contact Us</a>
 </nav>
-
-</nav>
-      </div>
-    </div>
   </header>
+
+    <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Bilum Haus PNG</h1>
+      <p>Discover handmade bilums and traditional crafts woven with love by Papua New Guinean women. Each piece tells a story of culture, strength, and connection. ❤️💛🖤</p>
+      <a href="products.html" class="hero-btn">Shop Now</a>
+    </div>
+  </section>
 
   <!-- Shop Section -->
   <section class="shop">
     <h2>Our Bilums</h2>
+    <!-- Add Product Form (Admin Only) -->
+<section id="add-product" class="add-product">
+  <h2>Add New Product</h2>
+  <form id="add-product-form">
+    <input type="text" id="new-product-name" placeholder="Product Name" required>
+    <input type="number" id="new-product-price" placeholder="Price (K)" required>
+    <input type="file" id="new-product-img" accept="image/*" required>
+    <button type="submit">Upload Product</button>
+  </form>
+  <p id="upload-msg"></p>
+</section>
     <div class="product-grid">
       <div class="product">
         <img src="images/sepik bilum.jpg" alt="Traditional Bilum">
@@ -50,6 +109,29 @@
       </div>
     </div>
   </section>
+
+  <!-- Customer Testimonials Section -->
+<section id="testimonials" class="testimonials">
+  <h2>What Our Happy Customers Say</h2>
+  <div class="testimonial-container">
+
+    <div class="testimonial">
+      <p>“I absolutely love my new bilum! The quality is amazing and delivery was fast. Thank you Bilum Haus PNG!”</p>
+      <h4>- Mary K., Port Moresby</h4>
+    </div>
+
+    <div class="testimonial">
+      <p>“These bilums are beautifully made by local PNG women. I’m proud to support our culture through my purchase.”</p>
+      <h4>- John T., Lae</h4>
+    </div>
+
+    <div class="testimonial">
+      <p>“Perfect gift idea! I bought one for my mum and she loved it. Will order again soon.”</p>
+      <h4>- Lucy A., Madang</h4>
+    </div>
+
+  </div>
+</section>
 
   <!-- Cart Section -->
   <section class="cart">
@@ -81,10 +163,20 @@
     </div>
   </section>
 
+  <!-- Newsletter Signup Section -->
+<section id="newsletter" class="newsletter">
+  <h2>Subscribe to Our Newsletter</h2>
+  <p>Get the latest updates, new products, and special offers from Bilum Haus PNG straight to your inbox!</p>
+  <form id="newsletter-form">
+    <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+    <button type="submit">Subscribe</button>
+  </form>
+  <p id="newsletter-msg"></p>
+</section>
+
   <!-- Footer -->
   <footer>
     <p>© 2025 Bilum Haus PNG | Made in Papua New Guinea 🇵🇬</p>
-  </footer>
 
   <!-- Floating WhatsApp Chat Button -->
   <a href="https://wa.me/67573745735?text=Hi%20Bilum%20Haus%20PNG!%20I%20want%20to%20ask%20about%20your%20bilums."
@@ -93,7 +185,21 @@
      title="Chat on WhatsApp">
     <img src="images/whatsapp-icon.png" alt="WhatsApp Chat" class="whatsapp-icon">
   </a>
+  <div class="social-icons">
+      <a href="https://www.facebook.com/" target="_blank" title="Facebook">
+        <img src="images/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.tiktok.com/" target="_blank" title="TikTok">
+        <img src="images/tiktok.png" alt="TikTok">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" title="Instagram">
+        <img src="images/instagram.png" alt="Instagram">
+      </a>
+    </div>
+    </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+ 

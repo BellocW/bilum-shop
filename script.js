@@ -113,3 +113,140 @@ function sendContactMessage(event) {
   const url = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
   window.open(url, "_blank");
 }
+
+// --- Image Carousel Functionality ---
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slides img");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    dots[i].classList.remove("active");
+    if (i === index) {
+      slide.classList.add("active");
+      dots[i].classList.add("active");
+    }
+  });
+  currentSlide = index;
+}
+
+function changeSlide(step) {
+  currentSlide += step;
+  if (currentSlide < 0) currentSlide = slides.length - 1;
+  if (currentSlide >= slides.length) currentSlide = 0;
+  showSlide(currentSlide);
+}
+
+function setSlide(index) {
+  showSlide(index);
+}
+
+// Auto-slide every 5 seconds
+setInterval(() => {
+  changeSlide(1);
+}, 5000);
+
+// --- Auto-Fading Testimonials ---
+const testimonials = document.querySelectorAll(".testimonial");
+let testimonialIndex = 0;
+
+function showNextTestimonial() {
+  testimonials.forEach((t, i) => {
+    t.style.display = i === testimonialIndex ? "block" : "none";
+  });
+  testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+}
+
+// Initially show first testimonial
+showNextTestimonial();
+setInterval(showNextTestimonial, 6000);
+
+// --- Newsletter Signup Form ---
+const newsletterForm = document.getElementById("newsletter-form");
+const newsletterMsg = document.getElementById("newsletter-msg");
+
+newsletterForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const email = document.getElementById("newsletter-email").value;
+
+  if (email) {
+    // Here you could integrate with an actual mailing service
+    newsletterMsg.textContent = `Thank you for subscribing, ${email}! 🎉`;
+    newsletterForm.reset();
+  } else {
+    newsletterMsg.textContent = "Please enter a valid email address.";
+    newsletterMsg.style.color = "red";
+  }
+});
+
+// --- Add Product Dynamically (with image upload) ---
+const addProductForm = document.getElementById("add-product-form");
+const uploadMsg = document.getElementById("upload-msg");
+
+addProductForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("new-product-name").value;
+  const price = parseFloat(document.getElementById("new-product-price").value);
+  const imgFile = document.getElementById("new-product-img").files[0];
+
+  if (!name || !price || !imgFile) {
+    uploadMsg.textContent = "Please fill in all fields!";
+    uploadMsg.style.color = "red";
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    const imgData = e.target.result; // Base64 image string
+
+    // Create new product element
+    const productGrid = document.querySelector(".product-grid");
+    const div = document.createElement("div");
+    div.className = "product";
+    div.innerHTML = `
+      <img src="${imgData}" alt="${name}">
+      <h3>${name}</h3>
+      <p class="price">K${price}</p>
+      <button onclick="addToCart('${name}', ${price})">Add to Cart</button>
+    `;
+    productGrid.appendChild(div);
+
+    // Save product in local storage
+    let storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+    storedProducts.push({ name, price, img: imgData });
+    localStorage.setItem("products", JSON.stringify(storedProducts));
+
+    uploadMsg.textContent = `Product "${name}" uploaded successfully! 🎉`;
+    uploadMsg.style.color = "green";
+    addProductForm.reset();
+  };
+
+  reader.readAsDataURL(imgFile); // Convert image to Base64
+});
+
+// Load stored products from local storage on page load
+window.addEventListener("load", () => {
+  const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+  const productGrid = document.querySelector(".product-grid");
+
+  storedProducts.forEach(product => {
+    const div = document.createElement("div");
+    div.className = "product";
+    div.innerHTML = `
+      <img src="${product.img}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p class="price">K${product.price}</p>
+      <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+    `;
+    productGrid.appendChild(div);
+  });
+});
+
+// --- Supabase Config ---
+const SUPABASE_URL = "https://ahgevvbddypbhqpcpphq.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFoZ2V2dmJkZHlwYmhxcGNwcGhxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI0ODk5NTUsImV4cCI6MjA3ODA2NTk1NX0.A394-FBis32AKYT_CLVephAItIPkopMXhRDmnmfc6vk"; // found in Project Settings → API → anon key
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
