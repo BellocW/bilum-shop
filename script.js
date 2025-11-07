@@ -93,3 +93,23 @@ function clearCart() {
 
 // Display cart when page loads
 document.addEventListener("DOMContentLoaded", updateCartDisplay);
+
+// --- Contact Page WhatsApp Message ---
+function sendContactMessage(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('contact-name').value;
+  const email = document.getElementById('contact-email').value;
+  const message = document.getElementById('contact-message').value;
+
+  const whatsappMessage = 
+    `📬 *New Inquiry - Bilum Haus PNG*%0A` +
+    `👤 Name: ${name}%0A` +
+    `📧 Email: ${email}%0A%0A` +
+    `💬 Message:%0A${message}%0A%0A` +
+    `Sent from Bilum Haus PNG website`;
+
+  const phoneNumber = "67573745735";
+  const url = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+  window.open(url, "_blank");
+}
